@@ -10,33 +10,36 @@ import { MarvelProvider } from '../../providers/marvel/marvel';
 })
 export class HomePage {
 
-  characters:any = {};
+  characters: any = [];
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     private marvel: MarvelProvider,
-    private loadingCtrl: LoadingController
-    ) {
-      
-      let loader = this.loadingCtrl.create({
-        duration: 1000
-      });
-      loader.present();
-    
-      marvel.getCharacters(50)
-      .then( (data:any) => {
-        this.characters = data.data.results;
-        console.log(this.characters);
-        
-        loader.dismiss;
-      })
-      .catch(err =>{
-        alert("Error");
-      });
+    private loadingCtrl: LoadingController,
+  ) { 
 
+    this.loadData();
   }
 
   ionViewDidLoad() {
     
+  }
+
+  loadData() {
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+
+    loading.present();
+
+    this.marvel.getCharacters(10)
+      .then((data: any) => {
+        this.characters = data.data.results;
+        console.log(this.characters);
+        loading.dismissAll();
+      })
+      .catch(err => {
+        alert("Error");
+      });
   }
 }
