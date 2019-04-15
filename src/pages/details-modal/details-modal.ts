@@ -17,6 +17,7 @@ export class DetailsModalPage {
 
   character:any;
   comics:any = [];
+  info:string = 'comics';
 
   constructor(public navCtrl: NavController,private viewCtrl: ViewController, public navParams: NavParams) {
     this.character = navParams.get("character");
