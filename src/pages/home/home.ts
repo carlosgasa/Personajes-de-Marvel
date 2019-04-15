@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController } from 'ionic-angular';
+import { NavController, LoadingController, ModalController } from 'ionic-angular';
 import { IonicPage } from 'ionic-angular';
 import { MarvelProvider } from '../../providers/marvel/marvel';
 
@@ -17,6 +17,7 @@ export class HomePage {
     public navCtrl: NavController,
     private marvel: MarvelProvider,
     private loadingCtrl: LoadingController,
+    private modalCtrl: ModalController
   ) { 
 
     this.loadData("A");
@@ -42,5 +43,9 @@ export class HomePage {
       });
   }
 
+  openCharacter(s:any){
+    const modal = this.modalCtrl.create('DetailsModalPage', {character : s});
+    modal.present();
+  }
   
 }
