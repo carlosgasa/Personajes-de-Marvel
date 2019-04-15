@@ -12,11 +12,12 @@ export class MarvelProvider {
 
   constructor(public http: HttpClient) {}
 
-  public getCharacters(limit:number = 50){
+  public getCharacters(limit:number = 50, letter:string = "A"){
     return new Promise(resolve => {
       this.http.get(
         GlobalVariablesProvider.api_url +
         'characters' + '?' +
+        'nameStartsWith=' + letter + '&' +
         'limit=' + limit + '&' +
         'apikey=' + GlobalVariablesProvider.api_key + '&' + 
         'ts=' + GlobalVariablesProvider.timestamp + '&' +

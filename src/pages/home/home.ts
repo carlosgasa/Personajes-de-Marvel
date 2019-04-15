@@ -11,6 +11,7 @@ import { MarvelProvider } from '../../providers/marvel/marvel';
 export class HomePage {
 
   characters: any = [];
+  letter:string = 'A';
 
   constructor(
     public navCtrl: NavController,
@@ -18,21 +19,19 @@ export class HomePage {
     private loadingCtrl: LoadingController,
   ) { 
 
-    this.loadData();
+    this.loadData("A");
   }
 
-  ionViewDidLoad() {
-    
-  }
+  ionViewDidLoad(){}
 
-  loadData() {
+  loadData(letter:string) {
     let loading = this.loadingCtrl.create({
-      content: 'Please wait...'
+      content: 'Cargando personajes...',
+      spinner: 'crescent'
     });
-
     loading.present();
 
-    this.marvel.getCharacters(10)
+    this.marvel.getCharacters(20,letter)
       .then((data: any) => {
         this.characters = data.data.results;
         console.log(this.characters);
@@ -42,4 +41,6 @@ export class HomePage {
         alert("Error");
       });
   }
+
+  
 }

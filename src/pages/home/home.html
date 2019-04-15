@@ -1,10 +1,42 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Personajes de Marvel</ion-title>
+    <ion-item>
+        <ion-label>Buscar por letra</ion-label>
+        <ion-select [(ngModel)]="letter" (ionChange)="loadData(letter)">
+          <ion-option value="A">A</ion-option>
+          <ion-option value="B">B</ion-option>
+          <ion-option value="C">C</ion-option>
+          <ion-option value="D">D</ion-option>
+          <ion-option value="E">E</ion-option>
+          <ion-option value="F">F</ion-option>
+          <ion-option value="G">G</ion-option>
+          <ion-option value="H">H</ion-option>
+          <ion-option value="I">I</ion-option>
+          <ion-option value="J">J</ion-option>
+          <ion-option value="K">K</ion-option>
+          <ion-option value="L">L</ion-option>
+          <ion-option value="N">N</ion-option>
+          <ion-option value="M">M</ion-option>
+          <ion-option value="O">O</ion-option>
+          <ion-option value="P">P</ion-option>
+          <ion-option value="Q">Q</ion-option>
+          <ion-option value="R">R</ion-option>
+          <ion-option value="S">S</ion-option>
+          <ion-option value="T">T</ion-option>
+          <ion-option value="U">U</ion-option>
+          <ion-option value="V">V</ion-option>
+          <ion-option value="W">W</ion-option>
+          <ion-option value="X">X</ion-option>
+          <ion-option value="Y">Y</ion-option>
+          <ion-option value="Z">Z</ion-option>
+        </ion-select>
+      </ion-item>
   </ion-navbar>
+
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <ion-card *ngFor="let s of characters">
       <ion-item>
           <ion-avatar item-start>
