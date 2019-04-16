@@ -1,7 +1,0 @@
-{
-  "name": "MarvelApp",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "ionic-angular"
-}
