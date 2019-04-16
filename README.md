@@ -1,5 +1,5 @@
 # Personajes de Marvel
-## Código de aplicación hecha para ganar una entrada a [TalentLand][df1]
+## Código de aplicación hecha para ganar una entrada a [TalentLand][df1] con [Softek][df7]
 
 ### En esta app tú puedes:
 * Listar 20 personajes de Marvel por letra.
@@ -35,3 +35,4 @@ ionic cordova run android
 [df4]:<https://developer.android.com/studio>
 [df5]:<https://ionicframework.com/>
 [df6]:<https://carlosgasa.github.io/Personajes-de-Marvel/>
+[df7]:<https://www.facebook.com/softtek/>
