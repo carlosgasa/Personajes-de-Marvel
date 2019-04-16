@@ -1,5 +1,5 @@
 # Personajes de Marvel
-## Código de aplicación hecha para ganar una entrada a [TalentLand][df1] con [Softek][df7]
+## Código de aplicación hecha para ganar una entrada a [TalentLand][df1] con [Softek][df7] con ayuda del [API de Marvel][df8]
 
 ### En esta app tú puedes:
 * Listar 20 personajes de Marvel por letra.
@@ -8,7 +8,7 @@
 <img src="img/caps.jpg">
 
 ## Puedes descargar el apk [aquí][df2], ver el [demo web][df6] o   puedes correr el proyecto así:
-
+<br>
 **Se requiere tener instalado [NodeJS][df3], [Android SDK][df4] y [Ionic][df5]**
 
 ```sh
@@ -16,6 +16,13 @@ git clone https://github.com/carlosgasa/Personajes-de-Marvel.git
 git checkout master
 cd Personajes-de-Marvel
 npm install
+```
+Instalar dependencias:
+```sh
+ionic cordova plugin add cordova-plugin-statusbar
+npm install @ionic-native/status-bar
+
+npm i ts-md5
 ```
 
 Para ver en el explorador:
@@ -26,6 +33,13 @@ Para correr en el teléfono (con usb debug):
 ```sh
 ionic cordova run android
 ```
+<br>
+Para mostrar más de 20 personajes (máximo 100):
+Modifica el número en **src\pages\home\home.ts**:
+```ts
+ this.marvel.getCharacters(20,letter)
+```
+Para poner tus propias credenciales, usa el archivo **src\providers\global-variables\global-variables.example.ts** eliminando '.example' del nombre.
 
 
 
@@ -36,3 +50,4 @@ ionic cordova run android
 [df5]:<https://ionicframework.com/>
 [df6]:<https://carlosgasa.github.io/Personajes-de-Marvel/>
 [df7]:<https://www.facebook.com/softtek/>
+[df8]:<https://developer.marvel.com>
