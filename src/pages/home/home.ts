@@ -12,6 +12,7 @@ export class HomePage {
 
   characters: any = [];
   letter:string = 'A';
+  api_is_ready:number = -1;
 
   constructor(
     public navCtrl: NavController,
@@ -28,6 +29,7 @@ export class HomePage {
   loadData(letter:string) {
     let loading = this.loadingCtrl.create({
       content: 'Cargando personajes...',
+      duration: 5000,
       spinner: 'crescent'
     });
     loading.present();
@@ -36,10 +38,12 @@ export class HomePage {
       .then((data: any) => {
         this.characters = data.data.results;
         console.log(this.characters);
+        this.api_is_ready = 1;
         loading.dismissAll();
       })
       .catch(err => {
-        alert("Error");
+        this.api_is_ready = -1;
+        alert("Error de conexión");
       });
   }
 
