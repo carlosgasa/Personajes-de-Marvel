@@ -8,7 +8,7 @@
 <img src="img/caps.jpg">
 
 ## Puedes descargar el apk [aquí][df2], ver el [demo web][df6] o   puedes correr el proyecto así:
-<br>
+
 **Se requiere tener instalado [NodeJS][df3], [Android SDK][df4] y [Ionic][df5]**
 
 ```sh
@@ -33,7 +33,7 @@ Para correr en el teléfono (con usb debug):
 ```sh
 ionic cordova run android
 ```
-<br>
+
 Para mostrar más de 20 personajes (máximo 100):
 Modifica el número en **src\pages\home\home.ts**:
 ```ts
