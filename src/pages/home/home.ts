@@ -37,7 +37,7 @@ export class HomePage {
     this.marvel.getCharacters(20,letter)
       .then((data: any) => {
         this.characters = data.data.results;
-        console.log(this.characters);
+        //console.log(this.characters);
         this.api_is_ready = 1;
         loading.dismissAll();
       })

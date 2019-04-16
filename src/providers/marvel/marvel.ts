@@ -13,10 +13,8 @@ export class MarvelProvider {
 
   timestamp:string;
 
-  constructor(public http: HttpClient, private md5:Md5) {
-    this.timestamp = new Date().valueOf().toString();
-    console.log(this.timestamp);
-    
+  constructor(public http: HttpClient) {
+    this.timestamp = new Date().valueOf().toString();    
   }
 
   public getCharacters(limit:number = 50, letter:string = "A"){
@@ -29,15 +27,7 @@ export class MarvelProvider {
         'apikey=' + GlobalVariablesProvider.public_api_key + '&' + 
         'ts=' + this.timestamp + '&' +
         'hash=' + this.getHash())
-          .subscribe(data => {
-            console.log(GlobalVariablesProvider.api_url +
-              'characters' + '?' +
-              'nameStartsWith=' + letter + '&' +
-              'limit=' + limit + '&' +
-              'apikey=' + GlobalVariablesProvider.public_api_key + '&' + 
-              'ts=' + this.timestamp + '&' +
-              'hash=' + this.getHash());
-            
+          .subscribe(data => {           
             resolve(data);
           }, err => {
             console.log(err);

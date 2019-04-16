@@ -37,7 +37,7 @@
 
 
     <div [ngSwitch]="info">
-        <ion-list *ngSwitchCase="'comics'" no-lines>
+        <ion-list *ngSwitchCase="'comics'" no-lines (swipe)="swipe($event)">
             <ion-item>
                 <p text-center>Lista de comics en donde apareció:</p>
             </ion-item>
@@ -46,7 +46,7 @@
             </ion-item>
         </ion-list>
       
-        <ion-list *ngSwitchCase="'series'" no-lines>
+        <ion-list *ngSwitchCase="'series'" no-lines (swipe)="swipe($event)">
             <ion-item>
                 <p text-center>Lista de series en donde apareció:</p>
             </ion-item>
