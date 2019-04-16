@@ -8,6 +8,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { MarvelProvider } from '../providers/marvel/marvel';
 import { GlobalVariablesProvider } from '../providers/global-variables/global-variables';
 import { HttpClientModule } from '@angular/common/http';
+import {Md5} from 'ts-md5/dist/md5';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [
     StatusBar,
     SplashScreen,
+    Md5,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     MarvelProvider,
     GlobalVariablesProvider

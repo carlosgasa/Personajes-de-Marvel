@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { GlobalVariablesProvider } from '../global-variables/global-variables';
+import { Md5 } from 'ts-md5/dist/md5';
 /*
   Generated class for the MarvelProvider provider.
 
@@ -10,7 +11,13 @@ import { GlobalVariablesProvider } from '../global-variables/global-variables';
 @Injectable()
 export class MarvelProvider {
 
-  constructor(public http: HttpClient) {}
+  timestamp:string;
+
+  constructor(public http: HttpClient, private md5:Md5) {
+    this.timestamp = new Date().valueOf().toString();
+    console.log(this.timestamp);
+    
+  }
 
   public getCharacters(limit:number = 50, letter:string = "A"){
     return new Promise(resolve => {
@@ -19,15 +26,27 @@ export class MarvelProvider {
         'characters' + '?' +
         'nameStartsWith=' + letter + '&' +
         'limit=' + limit + '&' +
-        'apikey=' + GlobalVariablesProvider.api_key + '&' + 
-        'ts=' + GlobalVariablesProvider.timestamp + '&' +
-        'hash=' + GlobalVariablesProvider.hash)
+        'apikey=' + GlobalVariablesProvider.public_api_key + '&' + 
+        'ts=' + this.timestamp + '&' +
+        'hash=' + this.getHash())
           .subscribe(data => {
+            console.log(GlobalVariablesProvider.api_url +
+              'characters' + '?' +
+              'nameStartsWith=' + letter + '&' +
+              'limit=' + limit + '&' +
+              'apikey=' + GlobalVariablesProvider.public_api_key + '&' + 
+              'ts=' + this.timestamp + '&' +
+              'hash=' + this.getHash());
+            
             resolve(data);
           }, err => {
             console.log(err);
           }
           );
     });
+  }
+
+  getHash():string | Int32Array{   
+    return Md5.hashStr(this.timestamp+GlobalVariablesProvider.private_api_key+GlobalVariablesProvider.public_api_key);
   }
 }
