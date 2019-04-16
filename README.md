@@ -13,6 +13,7 @@
 
 ```sh
 git clone https://github.com/carlosgasa/Personajes-de-Marvel.git
+git checkout master
 cd Personajes-de-Marvel
 npm install
 ```
@@ -29,7 +30,7 @@ ionic cordova run android
 
 
 [df1]: <https://www.talent-land.mx/>
-[df2]: <https://www.talent-land.mx/>
+[df2]: <https://github.com/carlosgasa/Personajes-de-Marvel/raw/gh-pages/marvel_app_prod_1.0.0.apk>
 [df3]:<https://nodejs.org/es/>
 [df4]:<https://developer.android.com/studio>
 [df5]:<https://ionicframework.com/>
