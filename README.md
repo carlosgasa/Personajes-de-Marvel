@@ -1,5 +1,5 @@
 # Personajes de Marvel
-## Código de aplicación hecha para ganar una entrada a [TalentLand][df1] con [Softek][df7] consumiendo la [API de Marvel][df8]
+## Código de aplicación hecha para ganar una entrada a [TalentLand][df1] con [Softek][df7] consumiendo el [API de Marvel][df8]
 
 ### En esta app tú puedes:
 * Listar 20 personajes de Marvel por letra.
